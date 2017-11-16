@@ -7,8 +7,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.net.URI;
-
-import javax.accessibility.AccessibleAttributeSequence;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -324,7 +322,7 @@ public class AddressBookServiceTest {
 		// test that it is idempotent
 		//////////////////////////////////////////////////////////////////////
 		response = client.target("http://localhost:8282/contacts/person/2").request().delete();
-		assertEquals(400, response.getStatus());
+		assertEquals(404, response.getStatus());
 
 	}
 
